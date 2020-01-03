@@ -3,11 +3,14 @@ package cn.com.uama.demo.hellocompose
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
+import androidx.compose.unaryPlus
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.core.setContent
+import androidx.ui.foundation.DrawImage
 import androidx.ui.layout.Column
 import androidx.ui.layout.Spacing
+import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
 
 class MainActivity : AppCompatActivity() {
@@ -19,14 +22,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * 布局-样式
-     * 可以给 Column 增加样式，下面的代码给 Column 和四周增加了 16dp 的间距。
+     * 布局-增加图片
      */
     @Composable
     fun NewsStory() {
+        val image = +imageResource(R.drawable.header)
         Column(
                 modifier = Spacing(16.dp)
         ) {
+            DrawImage(image = image)
+
             Text("A day in Shark Fin Cove")
             Text("Davenport, California")
             Text("December 2018")
