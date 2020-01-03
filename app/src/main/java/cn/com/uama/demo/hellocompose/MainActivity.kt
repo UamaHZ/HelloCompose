@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.compose.unaryPlus
+import androidx.ui.core.Clip
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.core.setContent
 import androidx.ui.foundation.DrawImage
+import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
@@ -21,12 +23,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * 布局-调整图片的大小
-     * 给图片设置宽高需要将它放在一个 `Container` 组件中，然后对 `Container` 设置大小和位置。
-     *
-     * Height 指定了 Container 的高度
-     * Expanded 表示 Container 的大小为父组件所允许的最大宽高
-     * wraps 表示使用多个修饰符（modifier），但是前面的优先级更高
+     * Material Design
+     * 给图片增加圆角
      */
     @Composable
     fun NewsStory() {
@@ -35,7 +33,9 @@ class MainActivity : AppCompatActivity() {
                 modifier = Spacing(16.dp)
         ) {
             Container(modifier = Height(180.dp) wraps Expanded) {
-                DrawImage(image = image)
+                Clip(shape = RoundedCornerShape(8.dp)) {
+                    DrawImage(image = image)
+                }
             }
 
             HeightSpacer(16.dp)
