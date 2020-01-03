@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.Text
 import androidx.ui.core.setContent
+import androidx.ui.layout.Column
 import androidx.ui.tooling.preview.Preview
 
 class MainActivity : AppCompatActivity() {
@@ -17,13 +18,17 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * 布局
-     * 下面定义了三个文本元素，但是我们没有提供任何怎么放置他们的信息，于是他们就会重叠在一起
+     * 下面定义了三个文本元素
+     * `Column` 函数可以使在其中的元素数值排列，有点像方向为竖直的 LinearLayout。
+     *
      */
     @Composable
     fun NewsStory() {
-        Text("A day in Shark Fin Cove")
-        Text("Davenport, California")
-        Text("December 2018")
+        Column {
+            Text("A day in Shark Fin Cove")
+            Text("Davenport, California")
+            Text("December 2018")
+        }
     }
 
     /**
