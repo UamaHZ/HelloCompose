@@ -11,6 +11,7 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.DrawImage
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
+import androidx.ui.material.MaterialTheme
 import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
 
@@ -24,25 +25,28 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Material Design
-     * 给图片增加圆角
+     * 给文本元素设置样式
+     * 在 Column 外面包裹 MaterialTheme 组件，其内的文本元素就会使用 MaterialTheme 组件的默认文本样式。
      */
     @Composable
     fun NewsStory() {
         val image = +imageResource(R.drawable.header)
-        Column(
-                modifier = Spacing(16.dp)
-        ) {
-            Container(modifier = Height(180.dp) wraps Expanded) {
-                Clip(shape = RoundedCornerShape(8.dp)) {
-                    DrawImage(image = image)
+        MaterialTheme {
+            Column(
+                    modifier = Spacing(16.dp)
+            ) {
+                Container(modifier = Height(180.dp) wraps Expanded) {
+                    Clip(shape = RoundedCornerShape(8.dp)) {
+                        DrawImage(image = image)
+                    }
                 }
+
+                HeightSpacer(16.dp)
+
+                Text("A day in Shark Fin Cove")
+                Text("Davenport, California")
+                Text("December 2018")
             }
-
-            HeightSpacer(16.dp)
-
-            Text("A day in Shark Fin Cove")
-            Text("Davenport, California")
-            Text("December 2018")
         }
     }
 
