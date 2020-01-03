@@ -2,6 +2,7 @@ package cn.com.uama.demo.hellocompose
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.Composable
 import androidx.ui.core.Text
 import androidx.ui.core.setContent
 
@@ -15,7 +16,17 @@ class MainActivity : AppCompatActivity() {
         Text() 就是一个在 Compose UI 库中定义的可组合函数，可以通过调用该函数在界面上显示一个文本元素。
          */
         setContent {
-            Text(text = "Hello, Compose!")
+            Greeting("Compose")
         }
+    }
+
+    /**
+     * 自定义可组合函数
+     * 在一个普通函数上加上 @Composable 注解，就可以使它变成可组合函数。
+     * 可组合函数只能在其他可组合函数中被调用，但是可组合函数中也是可以调用普通函数的。
+     */
+    @Composable
+    fun Greeting(name: String) {
+        Text(text = "Hello $name!")
     }
 }
