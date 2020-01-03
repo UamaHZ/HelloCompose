@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.Text
+import androidx.ui.core.dp
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
+import androidx.ui.layout.Spacing
 import androidx.ui.tooling.preview.Preview
 
 class MainActivity : AppCompatActivity() {
@@ -17,14 +19,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * 布局
-     * 下面定义了三个文本元素
-     * `Column` 函数可以使在其中的元素数值排列，有点像方向为竖直的 LinearLayout。
-     *
+     * 布局-样式
+     * 可以给 Column 增加样式，下面的代码给 Column 和四周增加了 16dp 的间距。
      */
     @Composable
     fun NewsStory() {
-        Column {
+        Column(
+                modifier = Spacing(16.dp)
+        ) {
             Text("A day in Shark Fin Cove")
             Text("Davenport, California")
             Text("December 2018")
