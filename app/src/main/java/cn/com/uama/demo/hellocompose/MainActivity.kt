@@ -26,12 +26,13 @@ class MainActivity : AppCompatActivity() {
     /**
      * Material Design
      * 给文本元素设置样式
-     * 在 Column 外面包裹 MaterialTheme 组件，其内的文本元素就会使用 MaterialTheme 组件的默认文本样式。
+     * 在 Column 外面包裹 MaterialTheme 组件，给文本元素指定样式
      */
     @Composable
     fun NewsStory() {
         val image = +imageResource(R.drawable.header)
         MaterialTheme {
+            val typography = +MaterialTheme.typography()
             Column(
                     modifier = Spacing(16.dp)
             ) {
@@ -43,9 +44,18 @@ class MainActivity : AppCompatActivity() {
 
                 HeightSpacer(16.dp)
 
-                Text("A day in Shark Fin Cove")
-                Text("Davenport, California")
-                Text("December 2018")
+                Text(
+                        "A day in Shark Fin Cove",
+                        style = typography.h6
+                )
+                Text(
+                        "Davenport, California",
+                        style = typography.body2
+                )
+                Text(
+                        "December 2018",
+                        style = typography.body2
+                )
             }
         }
     }
