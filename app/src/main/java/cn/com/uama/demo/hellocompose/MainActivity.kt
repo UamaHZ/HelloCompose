@@ -12,6 +12,7 @@ import androidx.ui.foundation.DrawImage
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
+import androidx.ui.material.withOpacity
 import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
 
@@ -47,14 +48,17 @@ class MainActivity : AppCompatActivity() {
                 Text(
                         "A day in Shark Fin Cove",
                         style = typography.h6
+                            .withOpacity(0.87f)
                 )
                 Text(
                         "Davenport, California",
                         style = typography.body2
+                            .withOpacity(0.87f)
                 )
                 Text(
                         "December 2018",
                         style = typography.body2
+                            .withOpacity(0.6f)
                 )
             }
         }
