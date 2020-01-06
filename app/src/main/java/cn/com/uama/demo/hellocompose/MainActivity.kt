@@ -14,6 +14,7 @@ import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.withOpacity
 import androidx.ui.res.imageResource
+import androidx.ui.text.style.TextOverflow
 import androidx.ui.tooling.preview.Preview
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +47,11 @@ class MainActivity : AppCompatActivity() {
                 HeightSpacer(16.dp)
 
                 Text(
-                        "A day in Shark Fin Cove",
+                        "A day wandering through the sandhills " +
+                                "in Shark Fin Cove, and a few of the " +
+                                "sights I saw",
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
                         style = typography.h6
                             .withOpacity(0.87f)
                 )
